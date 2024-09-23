@@ -1,64 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticky Navbar with Centered Logo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+  <title>Florbalový eshop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+  .dropdown-menu img {
+    width: 100px; 
+    height: auto; 
+  }
+</style>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- End of Navbar -->
 
-    <!-- Centered Logo -->
-    <div class="logo-container my-4">
-        <img class="logo" src="data:image/png;base64,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" alt="Logo">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">     <!-- NAVBAR -->
+  <a class="navbar-brand" href="#">FLORBALL SHOP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="menu.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sezman
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="index.html">Florbalová hůl</a>
+          <a class="dropdown-item" href="test.html">Brankářská výbava</a>
+          <a class="dropdown-item" href="obuv.html">Sportovní obuv</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-primary" type="button" onclick="openCart()">Otevřít košík</button>
+    </form>
+  </div>
+</nav>                                           <!-- konec - NAVBAR -->
+
+ 
+<div class="container">   <!-- začátek karet --> 
+  <h2>Florbalový eshop</h2>
+  <p>Vyberte si z naší nabídky florbalek:</p>
+  <h3>Oxdog</h3>
+<div class="row">   <!-- Začátek prvního řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/77170/oxdog-hyperlight-hes-27-br-round-mbc_w620_h620.jpeg" alt="Oxdog Hyperlight HES 27 BR Round MBC">
+      <div class="card-body">
+        <h4 class="card-title">Oxdog Hyperlight HES 27 BR Round MBC</h4>
+        <p class="card-text">4 475 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Oxdog Hyperlight HES 27 BR Round MBC', 4475)">Přidat do košíku</button>
+      </div>
     </div>
-    <div>
-        <h1 class="nazev">Spše Žatec</h1>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://static.necy.eu/i/g/450x450/149828.webp" alt="OXDOG ULTRALIGHT HES 29 WT OVAL MBC2">
+      <div class="card-body">
+        <h4 class="card-title">OXDOG ULTRALIGHT HES 29 WT OVAL MBC2</h4>
+        <p class="card-text">3 490 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('OXDOG ULTRALIGHT HES 29 WT OVAL MBC2', 3490)">Přidat do košíku</button>
+      </div>
     </div>
-    <div class="text">
-    <h5>Střední průmyslová škola elektrotechnická a zařízení pro další vzdělávání pedagogických pracovníků, spol. s r.o.</h5>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://static.necy.eu/i/g/450x450/149829.webp" alt="OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2">
+      <div class="card-body">
+        <h4 class="card-title">OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2</h4>
+        <p class="card-text">4 725 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2', 4725)">Přidat do košíku</button>
+      </div>
     </div>
+  </div>
+</div> <!-- Konec prvního řádku -->
+<h3>Salming</h3>
+<div class="row"> <!-- Začátek druhého řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/72136/salming-hawk-tourlite-f31-smu_w620_h620.jpeg" alt="Salming Hawk Tourlite F31 SMU">
+      <div class="card-body">
+        <h4 class="card-title">Salming Hawk Tourlite F31 SMU</h4>
+        <p class="card-text">1 590 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Salming Hawk Tourlite F31 SMU', 1590)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75935/salming-q1-powerlite-aero-29-neon-green_w620_h620.jpeg" alt="Salming Q1 Powerlite Aero 29 Neon Green">
+      <div class="card-body">
+        <h4 class="card-title">Salming Q1 Powerlite Aero 29 Neon Green</h4>
+        <p class="card-text">2 999 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Salming Q1 Powerlite Aero 29 Neon Green', 2999)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/76326/salming-raven-powerlite-aero-by-langer-2_w620_h620.jpeg" alt="Salming Raven PowerLite Aero 27 By Langer">
+        <div class="card-body">
+          <h4 class="card-title">Salming Raven PowerLite Aero 27 By Langer</h4>
+          <p class="card-text">3999 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Salming Raven PowerLite Aero 27 By Langer', 3999)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec druhého řádku -->
+
+  <h3>Unihoc</h3>
+<div class="row"> <!-- Začátek třetího řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/72790/24151-unilite-evolab-29_w620_h620.jpeg" alt="UNIHOC UNILITE EVOLAB 29 Black-Silver">
+      <div class="card-body">
+        <h4 class="card-title">UNIHOC UNILITE EVOLAB 29 Black-Silver</h4>
+        <p class="card-text">4 585 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('UNIHOC UNILITE EVOLAB 29 Black-Silver', 4585)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/66744/23785-epic-carbskin-curve-1-0-26-black_w620_h620.jpeg" alt="Unihoc Epic Carbskin FL Curve 1.0° 26 Black">
+      <div class="card-body">
+        <h4 class="card-title">Unihoc Epic Carbskin FL Curve 1.0° 26 Black</h4>
+        <p class="card-text">4 399 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Unihoc Epic Carbskin FL Curve 1.0° 26 Black', 4399)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/72805/24091-player-top-light-29_w620_h620.jpeg" alt="Unihoc Player Top Light 29 Gold-Black">
+        <div class="card-body">
+          <h4 class="card-title">Unihoc Player Top Light 29 Gold-Black</h4>
+          <p class="card-text">2 099 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Unihoc Player Top Light 29 Gold-Black', 2099)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec třetího řádku -->
+  
+  <h3>Zone</h3>
+<div class="row"> <!-- Začátek čtvrtého řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75865/43441-hyper-al-27-pro-blackrainbow-oval_w620_h620.jpeg" alt="Zone Hyper Airlight 27 PRO Oval Black-Rainbow">
+      <div class="card-body">
+        <h4 class="card-title">Zone Hyper Airlight 27 PRO Oval Black-Rainbow</h4>
+        <p class="card-text">3 079 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Zone Hyper Airlight 27 PRO Oval Black-Rainbow', 3079)">Přidat do košíku</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75869/43451-dream-al-26-pro-whiterainbow_w620_h620.jpeg" alt="Zone Dream Airlight 26 PRO White-Rainbow">
+      <div class="card-body">
+        <h4 class="card-title">Zone Dream Airlight 26 PRO White-Rainbow</h4>
+        <p class="card-text">3 255 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Zone Dream Airlight 26 PRO White-Rainbow', 3255)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/75847/43331-harder-airlight-29-black-purple_w620_h620.jpeg" alt="Zone Harder Airlight 29 Black-Purple 2nd Drop">
+        <div class="card-body">
+          <h4 class="card-title">Zone Harder Airlight 29 Black-Purple 2nd Drop</h4>
+          <p class="card-text">3 219 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Zone Harder Airlight 29 Black-Purple 2nd Drop', 3219)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec čtvrtého řádku -->
+  <br>
+  
+     <!-- Modal -->
+     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Obsah košíku</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Výběr florbalky</th>
+                  <th>Cena</th>
+                  <th>Množství</th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody">
+              </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+          <button type="button" class="btn btn-danger" id="clearCartButton">Vymazat košík</button>
+          <button type="button" class="btn btn-primary">Objednat</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+
+      var cart = {};
+      
+
+      function addToCart(itemName, itemPrice) {
+
+        if (itemName in cart) {
+          cart[itemName].quantity += 1;
+        }
+
+        else {
+          cart[itemName] = {
+            price: itemPrice,
+            quantity: 1
+          };
+        }
+      }
+
+  function updateCartItemQuantity(itemName, quantity) {
+
+    cart[itemName].quantity = quantity;
+    
+
+    updateCartDisplay();
+  }
+  
+
+  function calculateTotalPrice() {
+    var totalPrice = 0;
+    
+    for (var itemName in cart) {
+      var item = cart[itemName];
+      var itemTotalPrice = item.price * item.quantity;
+      totalPrice += itemTotalPrice;
+    }
+    
+    return totalPrice;
+  }
+      
+      function updateCartDisplay() {
+
+        var cartTableBody = document.getElementById('cartTableBody');
+
+        cartTableBody.innerHTML = '';
+
+        for (var itemName in cart) {
+          var item = cart[itemName];
+          var itemTotalPrice = item.price * item.quantity;
+          
+          var row = '<tr><td>' + itemName + '</td><td>' + item.price + '</td><td>' + item.quantity + '</td></tr>';
+          cartTableBody.innerHTML += row;
+        }
+
+    var totalPrice = calculateTotalPrice();
+    var footer = '<tr><td colspan="2">Celková cena:</td><td>' + totalPrice + '</td></tr>';
+    cartTableBody.innerHTML += footer;
+  }
+
+    document.getElementById('clearCartButton').addEventListener('click', function() {
+
+      cart = {};
+      updateCartDisplay();
+    });
+
+      updateCartDisplay();
+      
+      $('#cartModal').modal('hide');
+    ;
+    
+      function openCart() {
+        updateCartDisplay();
+
+        $('#cartModal').modal('show');
+      }
+      function updateCartItemQuantity(itemName, quantity) {
+        cart[itemName].quantity = quantity;
+        
+      
+        updateCartDisplay();
+      }
+      
+    </script>  <!-- koneckaret --> 
+
+
+</div>
 </body>
 </html>
